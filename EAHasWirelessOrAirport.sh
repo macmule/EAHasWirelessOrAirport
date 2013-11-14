@@ -13,7 +13,7 @@
 checkWireless=$(networksetup -listallhardwareports | egrep "Hardware Port: (Air|Wi-)" | cut -c 16-)
 
 if [ -n "${checkWireless}" ]; then
-  echo "Yes"
+	echo "<result>No</result>"
 else
-  echo "No"
+	echo "<result>Yes</result>"
 fi
