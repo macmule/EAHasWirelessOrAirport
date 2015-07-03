@@ -10,9 +10,9 @@
 ####################################################################################################
 
 # Checks to see if their is a hardware port called AirPort or Wi-Fi
-checkWireless=$(networksetup -listallhardwareports | egrep "Hardware Port: (Air|Wi-)" | cut -c 16-)
+checkWireless=$(networksetup -listallhardwareports | egrep "Hardware Port: (Air|Wi-)" | awk '{ print $3 }')
 
-if [ -n "${checkWireless}" ]; then
+if [ -z "$checkWireless" ]; then
 	echo "<result>No</result>"
 else
 	echo "<result>Yes</result>"
